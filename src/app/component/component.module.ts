@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { UserActionComponent } from './user-action/user-action.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 
@@ -7,7 +8,9 @@ import { FavoriteComponent } from './favorite/favorite.component';
     UserActionComponent,
     FavoriteComponent
   ],
-  imports: [],
+  imports: [
+    BrowserModule
+  ],
   providers: [],
   bootstrap: []
 })

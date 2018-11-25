@@ -4,12 +4,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LibraryService {
-
+  users = [];
   constructor() {
     console.log('in library service');
    }
 
-   init():void {
-     console.log('in init');
+   saveData(bookUrl, authorName, bookName) {
+     const obj = {
+       'bookUrl': bookUrl,
+       'authorName': authorName,
+       'bookName': bookName
+     };
+     this.users.push(obj);
+     console.log(this.users);
+   }
+
+   getData() {
+    return this.users;
    }
 }

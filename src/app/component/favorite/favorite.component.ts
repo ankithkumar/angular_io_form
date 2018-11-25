@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LibraryService } from './../../services/library/library.service';
 
 @Component({
   selector: 'app-favorite',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorite.component.scss']
 })
 export class FavoriteComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  users;
+  constructor(private libraryService: LibraryService) {
+    console.log('favorite constructor');
   }
 
+  ngOnInit() {
+    console.log('favorite init');
+    this.users = this.libraryService.getData();
+  }
 }
