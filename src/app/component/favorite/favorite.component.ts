@@ -79,4 +79,8 @@ export class FavoriteComponent implements OnInit {
         }
     });
   }
+
+  delete(index) {
+    this.libraryService.deleteUser(index);
+  }
 }

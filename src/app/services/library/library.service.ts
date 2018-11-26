@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class LibraryService {
   users = [];
   constructor() {
-    console.log('in library service');
+    console.log('in library service ', localStorage);
    }
 
    saveData(bookUrl, authorName, bookName) {
@@ -44,5 +44,10 @@ export class LibraryService {
          console.log('editing ', user);
        }
      });
+   }
+
+   deleteUser(index) {
+     const deletedUser = this.users.splice(index, 1);
+     console.log('deleted user is ', deletedUser);
    }
 }

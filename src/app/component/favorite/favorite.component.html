@@ -17,14 +17,18 @@
         <tr *ngIf="!user.editing">
             <td scope="col-sm-12 col-md-3 col-lg-3">{{ user.bookUrl }} </td>
             <td scope="col-sm-12 col-md-3 col-lg-3">{{ user.bookName }} </td>
-            <td scope="col-sm-12 col-md-3 col-lg-3">{{ user.authorName }} </td>
-            <td scope="col-sm-12 col-md-3 col-lg-3"><i (click)="edit(user.bookUrl)" class="fa fa-edit"></i></td>
+            <td scope="col-sm-12 col-md-2 col-lg-2">{{ user.authorName }} </td>
+            <td scope="col-sm-12 col-md-2 col-lg-2"><i (click)="edit(user.bookUrl)" class="fa fa-edit"></i></td>
+            <td scope="col-sm-12 col-md-2 col-lg-2"><i (click) = 'delete(i)' class="fa fa-trash"></i></td>
         </tr>
     </div>
   </table>
 </div>
 <div *ngIf="!users.length">
   <p class="text-center">
-    No users stories yet!!!
-  </p>
+    No users stories yet!!!</p>
 </div>
+
+
+
+
