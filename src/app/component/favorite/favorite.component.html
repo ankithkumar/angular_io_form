@@ -1,15 +1,26 @@
 <div *ngIf="users.length !== 0">
   <table class="table table-dark">
     <tr>
-        <td scope="col-sm-12 col-md-4 col-lg-4">book url</td>
-        <td scope="col-sm-12 col-md-4 col-lg-4">bookname </td>
-        <td scope="col-sm-12 col-md-4 col-lg-4">authorName</td>
+        <td scope="col-sm-12 col-md-3 col-lg-3">book url</td>
+        <td scope="col-sm-12 col-md-3 col-lg-3">bookname </td>
+        <td scope="col-sm-12 col-md-2 col-lg-2">authorName</td>
+        <td scope="col-sm-12 col-md-4 col-lg-4">edit</td>
     </tr>
-    <tr *ngFor="let user of users" >
-            <td scope="col-sm-12 col-md-4 col-lg-4">{{ user.bookUrl }} </td>
-            <td scope="col-sm-12 col-md-4 col-lg-4">{{ user.bookName }} </td>
-            <td scope="col-sm-12 col-md-4 col-lg-4">{{ user.authorName }} </td>
-    </tr>
+    <div *ngFor="let user of users; index as i" >
+        <tr *ngIf="user.editing">
+          <td scope="col-sm-12 col-md-3 col-lg-3"><input (blur) = "addBookUrl($event, i)" value="{{user.bookUrl}}"/></td>
+          <td scope="col-sm-12 col-md-3 col-lg-3"><input (blur) = "addBookName($event, i)" value="{{user.bookName}}"/></td>
+          <td scope="col-sm-12 col-md-2 col-lg-2"><input (blur) = "addAuthorName($event, i)" value="{{user.authorName}}" /></td>
+          <td scope="col-sm-12 col-md-2 col-lg-2"><input type="button" (click) = "saveData(i)" value="save"/></td>
+          <td scope="col-sm-12 col-md-2 col-lg-2"><input type="button" (click) = "cancelEdit(i)" value="cancel"/></td>
+        </tr>
+        <tr *ngIf="!user.editing">
+            <td scope="col-sm-12 col-md-3 col-lg-3">{{ user.bookUrl }} </td>
+            <td scope="col-sm-12 col-md-3 col-lg-3">{{ user.bookName }} </td>
+            <td scope="col-sm-12 col-md-3 col-lg-3">{{ user.authorName }} </td>
+            <td scope="col-sm-12 col-md-3 col-lg-3"><i (click)="edit(user.bookUrl)" class="fa fa-edit"></i></td>
+        </tr>
+    </div>
   </table>
 </div>
 <div *ngIf="!users.length">
