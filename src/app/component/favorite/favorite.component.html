@@ -8,11 +8,11 @@
     </tr>
     <div *ngFor="let user of users; index as i" >
         <tr *ngIf="user.editing">
-          <td scope="col-sm-12 col-md-3 col-lg-3"><input (blur) = "addBookUrl($event, i)" value="{{user.bookUrl}}"/></td>
-          <td scope="col-sm-12 col-md-3 col-lg-3"><input (blur) = "addBookName($event, i)" value="{{user.bookName}}"/></td>
-          <td scope="col-sm-12 col-md-2 col-lg-2"><input (blur) = "addAuthorName($event, i)" value="{{user.authorName}}" /></td>
-          <td scope="col-sm-12 col-md-2 col-lg-2"><input type="button" (click) = "saveData(i)" value="save"/></td>
-          <td scope="col-sm-12 col-md-2 col-lg-2"><input type="button" (click) = "cancelEdit(i)" value="cancel"/></td>
+          <td scope="col-sm-12 col-md-3 col-lg-3"><input (blur) = 'addBookUrl($event, i)' value="{{user.bookUrl}}"/></td>
+          <td scope="col-sm-12 col-md-3 col-lg-3"><input (blur) = 'addBookName($event, i)' value="{{user.bookName}}"/></td>
+          <td scope="col-sm-12 col-md-2 col-lg-2"><input (blur) = 'addAuthorName($event, i)' value="{{user.authorName}}" /></td>
+          <td scope="col-sm-12 col-md-2 col-lg-2"><input type="button" (click) = 'saveData(i)' value="save"/></td>
+          <td scope="col-sm-12 col-md-2 col-lg-2"><input type="button" (click) = 'cancelEdit(i)' value="cancel"/></td>
         </tr>
         <tr *ngIf="!user.editing">
             <td scope="col-sm-12 col-md-3 col-lg-3">{{ user.bookUrl }} </td>

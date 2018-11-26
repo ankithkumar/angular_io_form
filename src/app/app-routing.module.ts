@@ -1,9 +1,9 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserActionComponent } from './component/user-action/user-action.component';
 import { FavoriteComponent } from './component/favorite/favorite.component';
 
-let routes: Routes = [
+const routes: Routes = [
   {
     path: '', redirectTo: 'userAction', pathMatch: 'full'
   },

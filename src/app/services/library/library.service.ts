@@ -23,7 +23,7 @@ export class LibraryService {
    getData() {
     return this.users;
    }
-   
+
    updateUser(index, user) {
      if (user.bookUrl) {
        this.users[index].bookUrl = user.bookUrl;
@@ -43,6 +43,6 @@ export class LibraryService {
          user.editing = !user.editing;
          console.log('editing ', user);
        }
-     })
+     });
    }
 }

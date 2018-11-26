@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LibraryService } from '../../services/library/library.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-action',
@@ -10,7 +11,7 @@ export class UserActionComponent implements OnInit {
   bookUrl: String;
   bookName: String;
   authorName: String;
-  constructor(private libraryService: LibraryService) {
+  constructor(private libraryService: LibraryService, private router: Router) {
     console.log('in useraction ', libraryService);
   }
 
@@ -32,6 +33,7 @@ export class UserActionComponent implements OnInit {
   checkData() {
    if (this.bookUrl && this.authorName && this.bookName) {
      this.libraryService.saveData(this.bookUrl, this.authorName, this.bookName);
+     this.router.navigate(['favorite']);
    } else {
       console.log('enter data');
    }

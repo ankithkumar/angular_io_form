@@ -35,7 +35,7 @@ export class FavoriteComponent implements OnInit {
       this.tempUsersVals[index].index = index;
     }
   }
-  
+
   initArray(index) {
     if (this.tempUsersVals[index] === undefined) {
       this.tempUsersVals[index] = {};
@@ -71,9 +71,10 @@ export class FavoriteComponent implements OnInit {
           console.log(this.tempUsersVals[index]);
           this.libraryService.updateUser(index, this.tempUsersVals[index]);
           this.users = this.libraryService.getData();
-          let delObj = this.tempUsersVals.splice(index, 1);
+          const delObj = this.tempUsersVals.splice(index, 1);
           console.log('deleted objects is ', delObj);
         } else {
+          this.edit(this.users[index].bookUrl);
           console.log('You have not updated it!');
         }
     });
